@@ -3,7 +3,7 @@ services:
     container_name: pgadmin-bd
     image: dpage/pgadmin4
     environment:
-      - PGADMIN_DEFAULT_EMAIL=angeloulloa@gmail.com
+      - PGADMIN_DEFAULT_EMAIL=angeloulloa69@gmail.com
       - PGADMIN_DEFAULT_PASSWORD=postgres
     ports:
       - "80:80"
@@ -12,14 +12,14 @@ services:
     networks:
       - mynetwork
 
-  spring-app:
-    container_name: spring-app
+  uniApp:
+    container_name: uniAapp
     image: spring-app:latest
     build: .
     ports: 
       - "8080:8080"
     environment:
-      - DATABASE_URL=jdbc:postgresql://spring-bd:5432/postgres
+      - DATABASE_URL=jdbc:postgresql://uniBdd:5432/postgres
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=postgres
     depends_on:
@@ -38,8 +38,8 @@ services:
     networks:
       - mynetwork
 
-  spring-bd:
-    container_name: spring-bd
+  uniBd:
+    container_name: uniBdd
     image: postgres:12
     ports: 
       - "5432:5432"
